@@ -1,0 +1,44 @@
+.navbar{
+    height: 37px;
+    width: 98%;
+    padding: 1%;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,.85);
+    position: fixed;
+    z-index: 1;
+}
+
+.contest{
+    width: 50%;
+    margin:0% 25%
+}
+.albumE{
+    display:flex;
+    flex-direction: row;
+    margin: 1%;
+}
+.img{
+    width: 30%;
+}
+.img2{
+    width: 40%;
+}
+.cont_pr{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+}
+.img_G{
+    height: 100%;
+    width: 100%;
+    border-radius:5%;
+}
+.img_{
+    height: 100px;
+    width: 100px;
+    border-radius:50%;
+    margin:2px;
+}
+.cont{
+    width: 60%;
+}

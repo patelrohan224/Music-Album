@@ -18,6 +18,18 @@ const albumShema = new mongoose.Schema({
         ref: "artist",
         required: true
     },
+    artistname: {
+        type: String,
+        required: false
+    },
+    artistimg: {
+        type: String,
+        required: false
+    },
+    albumimg: {
+        type: String,
+        required: false
+    },
     songs: {
         type: Array,
         required: true

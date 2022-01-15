@@ -10,7 +10,10 @@ router.post('/addAlbum', authenticate, async function (req, res) {
         artist: artist._id,
         year: req.body.year,
         genre: req.body.genre,
-        songs: req.body.songs
+        songs: req.body.songs,
+        artistimg: req.body.artistimg,
+        artistname:req.body.artistname,
+        albumimg:req.body.albumimg
     })
     return res.status(200).send({
         Album
