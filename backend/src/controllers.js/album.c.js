@@ -28,7 +28,7 @@ router.get("/getId", authenticate, async function (req, res) {
 router.delete("/delete/:id", authenticate, async function (req, res) {
 
     try {
-        await albumShema.findOneAndRemove(req.params.id)
+        await albumShema.findByIdAndDelete(req.params.id)
         return res.status(200).send({
             "deleted": '1'
         })
@@ -56,8 +56,8 @@ router.get("/allAllbum", async function (req, res) {
     const name=+req.query.name || "ewrwrw"
     let Albmus = await albumShema.find().sort(
         [
-            ['genre', genre],
-            ['year', year]
+            ['year', year],
+            ['genre', genre]
         ]).skip(offset).limit(size).lean().exec();
     const totalPages = Math.ceil(
         (await albumShema.find().countDocuments().lean().exec()) / size

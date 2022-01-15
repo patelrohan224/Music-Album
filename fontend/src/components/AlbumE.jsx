@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./hoe.css";
-export default function Album({ e, setforceUpade2, togleLogin, forceUpade2 }) {
+export default function AlbumE({ e, setforceUpade2, togleLogin, forceUpade2 }) {
   const [show, setshow] = useState(false);
   const { token } = useSelector((state) => state.Auth);
   const [id, setid] = useState("");
@@ -11,11 +11,12 @@ export default function Album({ e, setforceUpade2, togleLogin, forceUpade2 }) {
   const [load, setLoad] = useState(false);
   const [name, setname] = useState("");
   const [editflag, seteditflag] = useState(false);
-  async function deleteA(id) {
+  async function deleteA(idd) {
     setLoad(true);
     try {
+      console.log(e._id);
       let album = await axios.delete(
-        `http://localhost:2345/music/delete/${id}`,
+        `http://localhost:2345/music/delete/${e._id}`,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -31,11 +32,11 @@ export default function Album({ e, setforceUpade2, togleLogin, forceUpade2 }) {
       seterror(true);
     }
   }
-  async function editA(id) {
+  async function editA(idd) {
     setLoad(true);
     try {
       let album = await axios.patch(
-        `http://localhost:2345/music/editAlbum/${id}`,
+        `http://localhost:2345/music/editAlbum/${idd}`,
         {
           name: `${name}`,
         },

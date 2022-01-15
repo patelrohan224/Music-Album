@@ -107,18 +107,18 @@ export default function Addalbum({setaddalbum,addalbum,forceUpade,setforceUpade}
             setaimg(false);
           }
 
-          if (songname === "") {
-            setsflag(true);
-            return false
-          } else {
-            setsflag(false);
-          }
-          if (songdur === "") {
-            setdflag(true);
-            return false
-          } else {
-            setdflag(false);
-          }
+          // if (songname === "") {
+          //   setsflag(true);
+          //   return false
+          // } else {
+          //   setsflag(false);
+          // }
+          // if (songdur === "") {
+          //   setdflag(true);
+          //   return false
+          // } else {
+          //   setdflag(false);
+          // }
        return true;
       };
 
@@ -301,6 +301,8 @@ export default function Addalbum({setaddalbum,addalbum,forceUpade,setforceUpade}
                 let s=songname.toString()
                 let d=songdur.toString()
                 setar([...ar,[s,d]])
+                setsongname("")
+                setsongdur("")
               }
             }}>Add</Button>
              <div>No Of Song {ar.length}</div>

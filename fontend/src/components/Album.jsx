@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AlbumE from "./AlbumE";
@@ -13,6 +13,7 @@ export default function Album({ togleLogin, addAlbum, forceUpade }) {
   const [limit, serLimit] = useState(5);
   const [year, setyear] = useState(false);
   const [genre,setgenre]=useState(false);
+  const [string,setstring]=useState("")
   useEffect(() => {
     async function getalbum() {
       setload1(true);
@@ -64,6 +65,19 @@ export default function Album({ togleLogin, addAlbum, forceUpade }) {
             >
               Sort Genre
             </Button>
+             <TextField
+              // error={aimg}
+              label={"Name"}
+              // helperText={aimg ? "ArtistImg is required" : ""}
+              value={string}
+              onChange={(e) => {
+                setstring(e.target.value);
+              }}
+              id="outlined-basic"
+              variant="outlined"
+              className="name_inpt"
+              size="small"
+            />
           </div>
         ) : (
           ""
