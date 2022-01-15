@@ -9,8 +9,10 @@
 }
 
 .contest{
+    padding-top: 4rem;
     width: 50%;
-    margin:0% 25%
+    margin: 0% 25%;
+    text-align: center;
 }
 .albumE{
     display:flex;
@@ -40,5 +42,37 @@
     margin:2px;
 }
 .cont{
-    width: 60%;
+    width: 58%;
+    margin-left: 2%;
+}
+.addst {
+    width: 30%;
+    opacity: 1 !important;
+    margin: 10% 35%;
+    border: 1px solid #995d9b;
+    padding: 0% 0% 2%;
+    z-index: 1;
+    position: absolute;
+    background: #fff;
+    border-radius: 5px;
+}
+.addst-dv {
+    justify-content: space-between;
+    display: grid;
+    /* grid-template-rows: 50% 50%; */
+    padding: 1% 5%;
+    grid-gap: 2%;
+    grid-gap: 0%;
+    gap: 1%;
+    grid-template-columns: 49% 49%;
+}
+.add-btn{
+ text-align: center ;
+}
+.alpar{
+    display: flex;
+    flex-direction: column;
+}
+.songss{
+    justfy
 }

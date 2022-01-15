@@ -5,7 +5,8 @@ import { AddToken, LogOut } from "../redux/actions";
 import { Button } from "@mui/material";
 import "./hoe.css";
 import Album from "./Album";
-
+import Addalbum from "./Addalbum";
+import {TextField} from "@mui/material";
 export default function Home() {
   const location = useLocation();
   let token = location.search;
@@ -15,7 +16,7 @@ export default function Home() {
   const [togleLogin, setTogleLogin] = useState(true);
   const [hover, sethover] = useState(false);
   const [addalbum,setaddalbum]=useState(false);
-  const [addAlbum,setaddAlbum]=useState(0);
+  const [forceUpade,setforceUpade]=useState(0)
   const islogin = useSelector((state) => state.Auth.AuthReducer);
   const google_auth = () => {
     window.location.href = " http://localhost:2345/auth/google";
@@ -36,11 +37,24 @@ export default function Home() {
   return (
     <>
       <div className="navbar">
-        <img
+        {/* <img
           style={{ height: "40px", width: "100px", float: "left" }}
           src="https://cdn-icons-png.flaticon.com/512/167/167708.png"
           alt=""
-        />
+        /> */}
+        {/* <TextField
+              // error={aimg}
+              // label={aimg ? "error" : "ArtistImg"}
+              // helperText={aimg ? "ArtistImg is required" : ""}
+              // value={astring}
+              onChange={(e) => {
+                // setastring(e.target.value);
+              }}
+              id="outlined-basic"
+              variant="outlined"
+              className="name_inpt"
+              size="small"
+            /> */}
         {togleLogin ? (
           <Button
             onClick={() => {
@@ -54,7 +68,6 @@ export default function Home() {
         ) : (
           ""
         )}
-        {/* <Button variant="text" color="whit">Student managment system</Button> */}
         {togleLogin ? (
           <img
             onClick={() => {
@@ -104,11 +117,13 @@ export default function Home() {
           ""
         )} 
       </div>
-      {studentAddflag?<Addstudents
-        studentAdd={studentAdd}  setstudentAdd={setstudentAdd}
-         setstudentAddflag={setstudentAddflag}studentAddflag={studentAddflag} />:""}
+      {addalbum?<Addalbum 
+        forceUpade={forceUpade}  setforceUpade={setforceUpade}
+        setaddalbum={setaddalbum} addalbum={addalbum} />:""}
       {
-          <Album togleLogin={togleLogin} addAlbum={addAlbum}/>
+        <div style={addalbum?{opacity:".3"}:{opacity:"1"}}>
+          <Album togleLogin={togleLogin} forceUpade={forceUpade} />
+        </div>
       }
     </>
   );
