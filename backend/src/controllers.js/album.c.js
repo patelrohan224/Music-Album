@@ -53,7 +53,24 @@ router.get("/allAllbum", async function (req, res) {
     const year = +req.query.year || 1;
     const genre = +req.query.genre || 1;
     const offset = (page - 1) * size;
-    const name=+req.query.name || "ewrwrw"
+    const name=req.query.name
+    if(name!=""){
+        let Albmus = await albumShema.find({name:name}).sort(
+            [
+                ['year', year],
+                ['genre', genre]
+            ]).skip(offset).limit(size).lean().exec();
+        const totalPages = Math.ceil(
+            (await albumShema.find().countDocuments().lean().exec()) / size
+        );
+        if (Albmus.length == 0) return res.status(200).send({
+            message: "artiest dnt have any students"
+        });
+        return res.send({
+            Albmus,
+            totalPages
+        })
+    }else{
     let Albmus = await albumShema.find().sort(
         [
             ['year', year],
@@ -68,7 +85,7 @@ router.get("/allAllbum", async function (req, res) {
     return res.send({
         Albmus,
         totalPages
-    })
+    })}
 })
 
 module.exports = router

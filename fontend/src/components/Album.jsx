@@ -24,7 +24,7 @@ export default function Album({ togleLogin, addAlbum, forceUpade }) {
             year ? "-1" : "1"
           }&genre=${
             genre  ? "-1" : "1"
-          }`
+          }&name=${string}`
         );
         if (album !== undefined) {
           // console.log('album:', album)
@@ -40,10 +40,23 @@ export default function Album({ togleLogin, addAlbum, forceUpade }) {
       }
     }
     getalbum();
-  }, [page, year, forceUpade2, addAlbum, forceUpade, genre]);
+  }, [page, year, forceUpade2, addAlbum, forceUpade, genre,string]);
   return (
     <>
       <div className="contest">
+      <TextField
+              // error={aimg}
+              label={"Search by Album Name"}
+              // helperText={aimg ? "ArtistImg is required" : ""}
+              value={string}
+              onChange={(e) => {
+                setstring(e.target.value);
+              }}
+              id="outlined-basic"
+              variant="outlined"
+              className="name_inpt"
+              size="small"
+            />
         {albumdata !== undefined ? (
           <div>
             &nbsp;
@@ -65,19 +78,6 @@ export default function Album({ togleLogin, addAlbum, forceUpade }) {
             >
               Sort Genre
             </Button>
-             <TextField
-              // error={aimg}
-              label={"Name"}
-              // helperText={aimg ? "ArtistImg is required" : ""}
-              value={string}
-              onChange={(e) => {
-                setstring(e.target.value);
-              }}
-              id="outlined-basic"
-              variant="outlined"
-              className="name_inpt"
-              size="small"
-            />
           </div>
         ) : (
           ""
