@@ -209,42 +209,20 @@ export default function Addalbum({setaddalbum,addalbum,forceUpade,setforceUpade}
                 </div>
                 
                 <div className="addst-dv">
-                <FormControl
+                <TextField
               error={genderflag}
-              // sx={{ m: 0, minWidth: 210 }}
+              label={genderflag ? "error" : "Genre"}
+              helperText={genderflag ? "Genre is required" : ""}
+              value={gender}
+              onChange={(e) => {
+                setgender(e.target.value);
+              }}
+              id="outlined-basic"
+              variant="outlined"
               className="name_inpt"
-            >
-             <InputLabel id="demo-simple-select-helper-label" size="small">
-                {genderflag ? "error" : "Genre"}
-              </InputLabel>
-              <Select
-                size="small"
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={gender}
-                label={genderflag ? "error" : "Genre"}
-                onChange={(e)=>{
-                    console.log('e.target.value:', e.target.value)
-                    setgender(e.target.value);
-                }}
-              >
-                <MenuItem value={""} size="small">
-                  <em>Select Type</em>
-                </MenuItem>
-                <MenuItem size="rock" value={"rock"}>
-                rock
-                </MenuItem>
-                <MenuItem size="lofi" value={"lofi"}>
-                lofi
-                </MenuItem>
-                <MenuItem size="90's" value={"90's"}>
-                90's
-                </MenuItem>
-              </Select>
-              <FormHelperText>
-                {genderflag ? "Genre Required" : ""}
-              </FormHelperText>
-            </FormControl>
+              size="small"
+            />
+              
              <TextField
               error={phoneflag}
              
@@ -328,7 +306,7 @@ export default function Addalbum({setaddalbum,addalbum,forceUpade,setforceUpade}
              <div>No Of Song {ar.length}</div>
             </div>
             <div className="add-btn">
-                 <Button variant="contained" 
+                 <Button disabled={ar.length==0} variant="contained" 
                  onClick={()=>{
                      validation()
                      if(validation())

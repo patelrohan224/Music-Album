@@ -72,7 +72,14 @@
 .alpar{
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 .songss{
-    justfy
+    margin: 2%;
+    justify-content: space-between;
+    display: flex;
+}
+.songss>p{
+    padding:0%;
+    margin:0%;
 }

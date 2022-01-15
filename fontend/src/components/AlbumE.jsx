@@ -191,11 +191,14 @@ export default function Album({ e, setforceUpade2, togleLogin, forceUpade2 }) {
         </div>
         <div>
           {show ? (
-            <div classname="songss">
+            <>
               {e.songs?.map((e, i) => (
-                <p key={i}>{e[0] + e[1]}</p>
-              ))}
+            <div key={i} className="songss">
+                <p>{i+1} {e[0]}</p>
+                <p>{e[1]}</p>
             </div>
+                ))}
+                </>
           ) : (
             ""
           )}
